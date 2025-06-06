@@ -1,0 +1,42 @@
+﻿@model Evaluation_Workshop_Final_CDA_C_.Data.Animal
+
+@{
+    ViewData["Title"] = "Supprimer un animal";
+}
+<div class="card border-danger shadow-sm" style="max-width: 40rem;">
+
+    <div class="card-header bg-danger text-white">
+        <h3 class="mb-0">@ViewData["Title"] : @Model.AnimalName</h3>
+    </div>
+
+    <div class="card-body">
+        <p><strong>Êtes-vous sûr de vouloir supprimer définitivement cet élément ?</strong></p>
+        <p class="text-muted">Cette action est irréversible.</p>
+        <hr />
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.AnimalName)</strong>
+            <p class="ms-2">@Html.DisplayFor(model => model.AnimalName)</p>
+        </div>
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Race)</strong>
+            @* On affiche bien le NOM de la race, et non son ID *@
+            <p class="ms-2">@Html.DisplayFor(model => model.Race.RaceName)</p>
+        </div>
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.AnimalDescription)</strong>
+            <blockquote class="ms-2">@Html.DisplayFor(model => model.AnimalDescription)</blockquote>
+        </div>
+    </div>
+
+    <div class="card-footer bg-light">
+        <form asp-action="Delete" class="d-flex justify-content-end">
+            <input type="hidden" asp-for="AnimalId" />
+
+            <a asp-action="Index" class="btn btn-secondary me-2">Annuler</a>
+            <input type="submit" value="Oui, supprimer" class="btn btn-danger" />
+        </form>
+    </div>
+</div>

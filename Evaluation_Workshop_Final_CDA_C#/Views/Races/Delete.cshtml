@@ -1,0 +1,40 @@
+﻿@model Evaluation_Workshop_Final_CDA_C_.Data.Race
+
+@{
+    ViewData["Title"] = "Supprimer la Race";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="card border-danger shadow-sm" style="max-width: 40rem;">
+
+    <div class="card-header bg-danger text-white">
+        <h3 class="mb-0">@ViewData["Title"]</h3>
+    </div>
+
+    <div class="card-body">
+        <p><strong>Êtes-vous sûr de vouloir supprimer définitivement cet élément ?</strong></p>
+        <p class="text-muted">Cette action est irréversible.</p>
+        <hr />
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.RaceName)</strong>
+            <p class="ms-2">@Html.DisplayFor(model => model.RaceName)</p>
+        </div>
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.RaceDescription)</strong>
+            <blockquote class="ms-2">@Html.DisplayFor(model => model.RaceDescription)</blockquote>
+        </div>
+    </div>
+
+    <div class="card-footer bg-light">
+        <form asp-action="Delete" class="d-flex justify-content-end">
+            <input type="hidden" asp-for="RaceId" />
+
+            <a asp-action="Index" class="btn btn-secondary me-2">Annuler</a>
+            <input type="submit" value="Oui, supprimer" class="btn btn-danger" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Evaluation_Workshop_Final_CDA_C_Context"
+    }
+  }
+}

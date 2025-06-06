@@ -1,0 +1,36 @@
+﻿@model Evaluation_Workshop_Final_CDA_C_.Data.Animal
+
+@{
+    ViewData["Title"] = "Détails de l'animal";
+}
+<div class="card shadow-sm" style="max-width: 40rem;">
+    <div class="card-header">
+        <h3 class="mb-0">@ViewData["Title"] : @Model.AnimalName</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.AnimalName)</strong>
+            <p class="ms-2">@Html.DisplayFor(model => model.AnimalName)</p>
+        </div>
+
+        <hr />
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.AnimalDescription)</strong>
+            <blockquote class="ms-2">@Html.DisplayFor(model => model.AnimalDescription)</blockquote>
+        </div>
+
+        <hr />
+
+        <div class="mb-3">
+            <strong>@Html.DisplayNameFor(model => model.Race)</strong>
+            @* On affiche bien le NOM de la race, et non son ID *@
+            <p class="ms-2">@Html.DisplayFor(model => model.Race.RaceName)</p>
+        </div>
+
+    </div>
+    <div class="card-footer bg-light text-end">
+        <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+    </div>
+</div>

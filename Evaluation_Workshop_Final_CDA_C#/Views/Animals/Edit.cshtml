@@ -1,0 +1,43 @@
+﻿@model Evaluation_Workshop_Final_CDA_C_.Data.Animal
+
+@{
+    ViewData["Title"] = "Modifier un animal";
+}
+<div class="card shadow-sm" style="max-width: 40rem;">
+    <div class="card-header">
+        <h3 class="mb-0">@ViewData["Title"] : @Model.AnimalName</h3>
+    </div>
+    <form asp-action="Edit">
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <input type="hidden" asp-for="AnimalId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="AnimalName" class="control-label"></label>
+                <input asp-for="AnimalName" class="form-control" />
+                <span asp-validation-for="AnimalName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AnimalDescription" class="control-label"></label>
+                <textarea asp-for="AnimalDescription" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="AnimalDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="RaceId" class="control-label">Race</label>
+                <select asp-for="RaceId" class="form-control" asp-items="@(ViewData["RaceId"] as SelectList)"></select>
+                <span asp-validation-for="RaceId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+            <input type="submit" value="Enregistrer" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,50 @@
+﻿@model Evaluation_Workshop_Final_CDA_C_.Data.Race
+
+@{
+    ViewData["Title"] = "Modifier la Race";
+}
+
+<h1>Edit</h1>
+
+<h4>Race</h4>
+<hr />
+<div class="card shadow-sm" style="max-width: 40rem;">
+    <div class="card-header">
+        <h3 class="mb-0">@ViewData["Title"]</h3>
+    </div>
+    <form asp-action="Edit">
+        <div class="card-body">
+            @* Affiche les erreurs de validation globales *@
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            @* Le champ caché pour l'ID est crucial pour que l'action Edit sache quel élément mettre à jour *@
+            <input type="hidden" asp-for="RaceId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="RaceName" class="control-label"></label>
+                <input asp-for="RaceName" class="form-control" />
+                <span asp-validation-for="RaceName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="RaceDescription" class="control-label"></label>
+                @* On utilise un <textarea> pour la description, ce qui est plus approprié *@
+                <textarea asp-for="RaceDescription" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="RaceDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            @* Les boutons d'action sont regroupés pour plus de clarté *@
+            <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+            <input type="submit" value="Enregistrer les modifications" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
