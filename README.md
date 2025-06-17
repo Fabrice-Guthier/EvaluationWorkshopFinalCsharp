@@ -4,3 +4,5 @@ Les tests unitaires sont basés sur les méthodes des controllers ( ils sont tou
 J'ai utilisé Entity pour gérer les données, c'est du code first via l'ORM
 
 Il faudra quand même un petit " dotnet ef migrations add InitialCreate " , le scope dans program.cs fera l'update et le seeding de la bdd
+
+La page Privacy vaut le coup d'oeil ;)
